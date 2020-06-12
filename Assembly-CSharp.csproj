@@ -64,6 +64,9 @@
     <Compile Include="Assets\Scenes\Scripts\DespairDesertController.cs" />
     <Compile Include="Assets\Scenes\Scripts\ScreenResolutionController.cs" />
     <Compile Include="Assets\Scenes\Scripts\Tank.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Weapons\Bomb.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Weapons\Laser.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Weapons\WeaponBase.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

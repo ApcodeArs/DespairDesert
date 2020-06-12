@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,9 @@ public class Tank : MonoBehaviour
     private const float Speed = 5.0f;
     private const float RotationSpeed = 2.5f;
 
+    public List<GameObject> Weapons;
+    private int _currentWeaponInd = 0;
+
     void Start()
     {
         _tankRotation = transform.rotation.eulerAngles;
@@ -19,10 +23,11 @@ public class Tank : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        MoveController();
+        WeaponController();
     }
 
-    private void Move()
+    private void MoveController()
     {
         #region Rotation
         if (Input.GetKey(KeyCode.LeftArrow))
@@ -47,5 +52,24 @@ public class Tank : MonoBehaviour
             transform.position += transform.rotation * Vector3.down * Time.deltaTime * Speed;
         }
         #endregion
+    }
+
+    private void WeaponController()
+    {
+        //fire
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Instantiate(Weapons[_currentWeaponInd]);
+        }
+
+        //switch weapon
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _currentWeaponInd = (_currentWeaponInd == 0) ? Weapons.Count - 1 : _currentWeaponInd - 1;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            _currentWeaponInd = (_currentWeaponInd == Weapons.Count - 1) ? 0 : _currentWeaponInd + 1;
+        }
     }
 }
