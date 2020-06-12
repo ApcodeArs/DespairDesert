@@ -10,4 +10,14 @@ public class Bomb : WeaponBase
     {
         //todo
     }
+
+    public override void Init(GameObject parent)
+    {
+
+    }
+
+    public override void FixedUpdateWeapon()
+    {
+
+    }
 }

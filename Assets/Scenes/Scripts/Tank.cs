@@ -21,7 +21,7 @@ public class Tank : MonoBehaviour
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         MoveController();
         WeaponController();
@@ -59,7 +59,9 @@ public class Tank : MonoBehaviour
         //fire
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Instantiate(Weapons[_currentWeaponInd]);
+            var shell = Instantiate(Weapons[_currentWeaponInd]);
+            shell.GetComponent<WeaponBase>().Init(gameObject);
+            shell.transform.position = transform.position;
         }
 
         //switch weapon

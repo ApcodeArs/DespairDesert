@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3578032172972999978}
   - component: {fileID: 3578032172972999979}
   - component: {fileID: 7155366535345323353}
+  - component: {fileID: 8760175628100253193}
+  - component: {fileID: 3994249261984126020}
   m_Layer: 0
   m_Name: WeaponLaserPrefab
   m_TagString: Untagged
@@ -94,4 +96,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Laser
   Damage: 0
-  DefSprite: {fileID: 0}
+  Force: 10
+  Rigidbody: {fileID: 8760175628100253193}
+  Collider: {fileID: 3994249261984126020}
+--- !u!50 &8760175628100253193
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578032172972999976}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &3994249261984126020
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578032172972999976}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.07}
+  m_Size: {x: 0.4, y: 5.1}
+  m_Direction: 0
