@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tank : MonoBehaviour
 {
     private Vector3 _tankRotation;
+    private Vector3 _tankMovement;
 
     //todo add to Scriptable Object
     private const float Speed = 5.0f;
@@ -36,7 +37,6 @@ public class Tank : MonoBehaviour
         transform.rotation = Quaternion.Euler(_tankRotation);
         #endregion
 
-        //
         #region Shifting
         if (Input.GetKey(KeyCode.UpArrow))
         {
