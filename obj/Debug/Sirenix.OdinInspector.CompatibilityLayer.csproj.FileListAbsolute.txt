@@ -251,3 +251,7 @@ C:\Users\ars\Documents\Job\DespairDesert\obj\Debug\Sirenix.OdinInspector.Compati
 C:\Users\ars\Documents\Job\DespairDesert\obj\Debug\Sirenix.OdinInspector.CompatibilityLayer.csproj.CopyComplete
 C:\Users\ars\Documents\Job\DespairDesert\obj\Debug\Sirenix.OdinInspector.CompatibilityLayer.dll
 C:\Users\ars\Documents\Job\DespairDesert\obj\Debug\Sirenix.OdinInspector.CompatibilityLayer.pdb
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTween.dll
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTweenEditor.dll
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTween.xml
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTweenEditor.xml

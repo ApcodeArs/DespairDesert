@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class Tank : MonoBehaviour
     public List<GameObject> Weapons;
     private int _currentWeaponInd = 0;
 
+    public Text Text;
+    public Image WeaponImage;
+
     void Start()
     {
         _tankRotation = transform.rotation.eulerAngles;
-    }
 
+        SetUi();
+    }
 
     void Update()
     {
@@ -60,18 +65,26 @@ public class Tank : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             var shell = Instantiate(Weapons[_currentWeaponInd]);
-            shell.GetComponent<WeaponBase>().Init(gameObject);
             shell.transform.position = transform.position;
+            shell.GetComponent<WeaponBase>().Init(gameObject);
         }
 
         //switch weapon
         if (Input.GetKeyDown(KeyCode.Q))
         {
             _currentWeaponInd = (_currentWeaponInd == 0) ? Weapons.Count - 1 : _currentWeaponInd - 1;
+            SetUi();
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
             _currentWeaponInd = (_currentWeaponInd == Weapons.Count - 1) ? 0 : _currentWeaponInd + 1;
+            SetUi();
         }
+    }
+
+    private void SetUi()
+    {
+        Text.text = Weapons[_currentWeaponInd].GetComponent<WeaponBase>().Name;
+        WeaponImage.sprite = Weapons[_currentWeaponInd].GetComponent<SpriteRenderer>().sprite;
     }
 }

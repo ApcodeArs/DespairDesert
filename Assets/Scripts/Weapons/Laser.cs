@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Laser : WeaponBase
 {
+    [BoxGroup("Laser")]
     public float Force = 10f;
+
     public Rigidbody2D Rigidbody;
     public Collider2D Collider;
 
-    public override void AwakeWeapon()
-    {
-        //todo
-    }
+    public override void AwakeWeapon() { }
 
     public override void Init(GameObject parent)
     {
@@ -23,10 +23,7 @@ public class Laser : WeaponBase
         DOVirtual.DelayedCall(0.2f, () => Collider.isTrigger = false);
     }
 
-    public override void FixedUpdateWeapon()
-    {
-      
-    }
+    public override void FixedUpdateWeapon() { }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

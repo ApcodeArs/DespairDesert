@@ -67,13 +67,13 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
-    <Compile Include="Assets\Scenes\Scripts\BackgroundGeneration.cs" />
-    <Compile Include="Assets\Scenes\Scripts\DespairDesertController.cs" />
-    <Compile Include="Assets\Scenes\Scripts\ScreenResolutionController.cs" />
-    <Compile Include="Assets\Scenes\Scripts\Tank.cs" />
-    <Compile Include="Assets\Scenes\Scripts\Weapons\Bomb.cs" />
-    <Compile Include="Assets\Scenes\Scripts\Weapons\Laser.cs" />
-    <Compile Include="Assets\Scenes\Scripts\Weapons\WeaponBase.cs" />
+    <Compile Include="Assets\Scripts\BackgroundGeneration.cs" />
+    <Compile Include="Assets\Scripts\DespairDesertController.cs" />
+    <Compile Include="Assets\Scripts\ScreenResolutionController.cs" />
+    <Compile Include="Assets\Scripts\Tank.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Dynamite.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Laser.cs" />
+    <Compile Include="Assets\Scripts\Weapons\WeaponBase.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -291,6 +291,9 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
     <Reference Include="Sirenix.OdinInspector.Attributes">
       <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Assets/Plugins/Sirenix/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
     </Reference>
@@ -311,9 +314,6 @@
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Library/PackageCache/com.unity.analytics@3.2.3/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="DOTween">
-      <HintPath>C:/Users/ars/Documents/Job/DespairDesert/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.4.23f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

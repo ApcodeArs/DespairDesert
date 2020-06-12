@@ -249,3 +249,5 @@ C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\Sirenix.OdinInspector.Ed
 C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\Sirenix.Serialization.Config.xml
 C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\Sirenix.Utilities.xml
 C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\Sirenix.Utilities.Editor.xml
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTween.dll
+C:\Users\ars\Documents\Job\DespairDesert\Temp\bin\Debug\DOTween.xml
