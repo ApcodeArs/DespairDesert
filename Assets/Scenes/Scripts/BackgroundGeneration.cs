@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
+
+//todo add camera dependency
 public class BackgroundGeneration : MonoBehaviour
 {
     [BoxGroup("Size"), OnValueChanged("SetTexture")]
