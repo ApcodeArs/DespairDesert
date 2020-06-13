@@ -69,6 +69,9 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\BackgroundGeneration.cs" />
     <Compile Include="Assets\Scripts\DespairDesertController.cs" />
+    <Compile Include="Assets\Scripts\Enemies\BaseEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnimyType1.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnimyType2.cs" />
     <Compile Include="Assets\Scripts\EnemiesSpawnHelper.cs" />
     <Compile Include="Assets\Scripts\ScreenResolutionController.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
