@@ -1137,7 +1137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1026439129
 Transform:
   m_ObjectHideFlags: 0
@@ -1871,6 +1871,11 @@ MonoBehaviour:
   RightBorder: {fileID: 1813720330}
   TopBorder: {fileID: 1774226817}
   BottomBorder: {fileID: 18497972}
+  Enemies: []
+  EnemiesPrefabs:
+  - {fileID: 7305171198599704752, guid: ea70e2d17cfdc044483e767be8172fa3, type: 3}
+  - {fileID: 8036290689225566220, guid: 2a862da7476d087418b88ff48e4fe65c, type: 3}
+  Tank: {fileID: 107568627}
 --- !u!114 &2025172277
 MonoBehaviour:
   m_ObjectHideFlags: 0

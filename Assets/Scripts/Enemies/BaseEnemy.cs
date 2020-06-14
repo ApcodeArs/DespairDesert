@@ -9,7 +9,9 @@ public abstract class BaseEnemy : MonoBehaviour
 
     [BoxGroup("BaseEnemy")]
     public const int EnemiesCount = 10;
-   
+    [BoxGroup("BaseEnemy")]
+    public const int SpawnDelay = 1; //sec
+
     [BoxGroup("BaseEnemy")]
     public string Name;
 
@@ -22,7 +24,9 @@ public abstract class BaseEnemy : MonoBehaviour
     public float Speed;
     [BoxGroup("BaseEnemy")]
     public float Damage;
-    
+
+    protected GameObject Target;
+
     private void Awake()
     {
         AwakeEnemy();
@@ -34,8 +38,16 @@ public abstract class BaseEnemy : MonoBehaviour
     }
 
     public abstract void AwakeEnemy();
-
-    //public abstract void Init(GameObject parent);
-
     public abstract void FixedUpdateEnemy();
+
+    public abstract void Movement();
+
+    public virtual void Init(GameObject target)
+    {
+        Target = target;
+
+        Movement();
+    }
+
+   
 }

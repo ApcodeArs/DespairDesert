@@ -10,6 +10,13 @@ public class DespairDesertController : MonoBehaviour
     [SerializeField, BoxGroup("Borders")] public GameObject TopBorder;
     [SerializeField, BoxGroup("Borders")] public GameObject BottomBorder;
 
+    [SerializeField, BoxGroup("Enemies")]
+    public List<GameObject> Enemies = new List<GameObject>();
+    [SerializeField, BoxGroup("Enemies")]
+    public List<GameObject> EnemiesPrefabs = new List<GameObject>();
+    private Coroutine _enemiesCoroutine;
+
+    public GameObject Tank;
 
     void Awake()
     {
@@ -19,6 +26,32 @@ public class DespairDesertController : MonoBehaviour
         {
             SetBorders(width, height);
         };
+
+        #region enemies сoroutine
+        if (_enemiesCoroutine!=null)
+            StopCoroutine(_enemiesCoroutine);
+
+        _enemiesCoroutine = StartCoroutine(EnemiesCoroutine());
+        #endregion
+    }
+
+    private IEnumerator EnemiesCoroutine()
+    {
+        while (true)
+        {
+            if (Enemies.Count < BaseEnemy.EnemiesCount)
+            {
+                var enemy = Instantiate(EnemiesPrefabs[Random.Range(0, EnemiesPrefabs.Count)]);
+                var pos = Camera.main.ViewportToWorldPoint(EnemiesSpawnHelper.GetRandomSpawnPosition());
+                enemy.transform.position = new Vector3(pos.x, pos.y, 0.0f) * 1.5f; //scale factor
+
+                enemy.GetComponent<BaseEnemy>().Init(Tank);
+
+                Enemies.Add(enemy);
+            }
+
+            yield return new WaitForSeconds(BaseEnemy.SpawnDelay);
+        }
     }
 
     private void SetBorders(int width, int height, float borderThickness = 5f, float borderScaleFactor = 2f)
