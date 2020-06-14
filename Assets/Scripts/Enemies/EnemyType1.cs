@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class EnemyType1 : BaseEnemy
 {
-    public override void AwakeEnemy()
-    {
-
-    }
+    public override void AwakeEnemy() { }
 
     public override void FixedUpdateEnemy()
     {

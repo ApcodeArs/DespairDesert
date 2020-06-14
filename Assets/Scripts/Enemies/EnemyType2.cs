@@ -11,6 +11,7 @@ public class EnemyType2 : BaseEnemy
     public float CurveAmplitude;
     [BoxGroup("EnemyType2")]
     public float CurveSpeed;
+
     private float _duration;
 
     public override void FixedUpdateEnemy()

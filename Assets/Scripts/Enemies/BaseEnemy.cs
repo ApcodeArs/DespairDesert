@@ -7,34 +7,49 @@ public abstract class BaseEnemy : MonoBehaviour
 {
     //todo add to Scriptable Object
 
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("StaticEnemyParams")]
     public const int EnemiesCount = 10;
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("StaticEnemyParams")]
     public const int SpawnDelay = 1; //sec
 
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("BaseEnemyParams")]
     public string Name;
 
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("BaseEnemyParams")]
     public float Health;
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("BaseEnemyParams")]
     public float Protection;
 
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("BaseEnemyParams")]
     public float Speed;
-    [BoxGroup("BaseEnemy")]
+    [BoxGroup("BaseEnemyParams")]
     public float Damage;
 
     protected GameObject Target;
 
+    private const float ScreenIndentation = 0.05f;
+
+    protected Collider2D Collider;
+
     private void Awake()
     {
+        Collider = GetComponent<Collider2D>();
+        Collider.enabled = false;
+
         AwakeEnemy();
     }
 
     private void FixedUpdate()
     {
         FixedUpdateEnemy();
+
+        var hindrancePosition = Camera.main.WorldToViewportPoint(transform.position);
+
+        if ((hindrancePosition.x > (0 + ScreenIndentation) && hindrancePosition.x < (1 - ScreenIndentation)) &&
+            (hindrancePosition.y > (0 + ScreenIndentation) && hindrancePosition.y < (1 - ScreenIndentation)))
+        {
+            Collider.enabled = true;
+        }
     }
 
     public abstract void AwakeEnemy();
