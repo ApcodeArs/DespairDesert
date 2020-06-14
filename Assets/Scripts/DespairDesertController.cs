@@ -39,18 +39,18 @@ public class DespairDesertController : MonoBehaviour
     {
         while (true)
         {
-            if (Enemies.Count < BaseEnemy.EnemiesCount)
+            if (Enemies.Count < EnemyBase.EnemiesCount)
             {
                 var enemy = Instantiate(EnemiesPrefabs[Random.Range(0, EnemiesPrefabs.Count)]);
                 var pos = Camera.main.ViewportToWorldPoint(EnemiesSpawnHelper.GetRandomSpawnPosition());
                 enemy.transform.position = new Vector3(pos.x, pos.y, 0.0f) * 1.5f; //scale factor
 
-                enemy.GetComponent<BaseEnemy>().Init(Tank);
+                enemy.GetComponent<EnemyBase>().Init(Tank);
 
                 Enemies.Add(enemy);
             }
 
-            yield return new WaitForSeconds(BaseEnemy.SpawnDelay);
+            yield return new WaitForSeconds(EnemyBase.SpawnDelay);
         }
     }
 

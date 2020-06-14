@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyType1 : BaseEnemy
+public class EnemyType1 : EnemyBase
 {
     public override void AwakeEnemy() { }
 
@@ -10,5 +10,4 @@ public class EnemyType1 : BaseEnemy
     {
         transform.position += (Target.transform.position - transform.position) * Speed * Time.deltaTime;
     }
-
 }

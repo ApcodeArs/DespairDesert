@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class EnemyType2 : BaseEnemy
+public class EnemyType2 : EnemyBase
 {
     public override void AwakeEnemy() { }
 

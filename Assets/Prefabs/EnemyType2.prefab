@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 61027328070333244}
   m_Layer: 0
   m_Name: EnemyType2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  Health: 0
-  Protection: 0
+  Health: 150
+  Protection: 0.2
   Speed: 0.4
   Damage: 0
   CurveAmplitude: 3
