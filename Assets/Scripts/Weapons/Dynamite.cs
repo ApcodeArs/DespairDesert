@@ -13,13 +13,7 @@ public class Dynamite : WeaponBase
 
     private Coroutine _dynamiteCoroutine;
 
-    protected static DespairDesertController DespairDesertController;
-
-    public override void AwakeWeapon()
-    {
-        if (DespairDesertController == null)
-            DespairDesertController = FindObjectOfType<DespairDesertController>();
-    }
+    public override void AwakeWeapon() { }
 
     public override void Init(GameObject parent)
     {
@@ -41,25 +35,14 @@ public class Dynamite : WeaponBase
             yield return null;
         }
 
-        //todo improve
-        var removedList = new List<int>();
+        //todo add interaction with tank
 
-        foreach (var enemy in DespairDesertController.Enemies)
+        for(var i = DespairDesertController.Enemies.Count-1; i>=0; i--)
         {
-            //todo add interaction with tank
-            //todo add hp calculation
-
-            if (Vector3.Distance(transform.position, enemy.transform.position) < LesionRadius)
+            if (Vector3.Distance(transform.position, DespairDesertController.Enemies[i].transform.position) < LesionRadius)
             {
-                removedList.Add(DespairDesertController.Enemies.IndexOf(enemy));
+                DespairDesertController.Enemies[i].GetComponent<EnemyBase>().SetHealth(Damage);
             }
-        }
-
-        foreach (var removedElem in removedList)
-        {
-            var t = DespairDesertController.Enemies.ElementAt(removedElem);
-            DespairDesertController.Enemies.Remove(t);
-            Destroy(t);
         }
 
         Destroy(gameObject);

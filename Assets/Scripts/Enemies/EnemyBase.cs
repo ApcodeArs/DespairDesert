@@ -5,12 +5,10 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    //todo add to Scriptable Object
-
     [BoxGroup("StaticEnemyParams")]
     public const int EnemiesCount = 10;
     [BoxGroup("StaticEnemyParams")]
-    public const float SpawnDelay = 2f; //sec
+    public const float SpawnDelay = 1.5f; //sec
 
     [BoxGroup("BaseEnemyParams")]
     public string Name;
@@ -25,13 +23,12 @@ public abstract class EnemyBase : MonoBehaviour
     [BoxGroup("BaseEnemyParams")]
     public float Damage;
 
-    protected GameObject Target;
-
     private const float ScreenIndentation = 0.05f;
 
     protected Collider2D Collider;
 
     protected static DespairDesertController DespairDesertController;
+    protected static Tank Target;
 
     private void Awake()
     {
@@ -41,13 +38,31 @@ public abstract class EnemyBase : MonoBehaviour
         if (DespairDesertController == null)
             DespairDesertController = FindObjectOfType<DespairDesertController>();
 
+        if (Target == null)
+            Target = FindObjectOfType<Tank>();
+
         AwakeEnemy();
     }
 
     private void FixedUpdate()
     {
+        SetColliderActivity();
         FixedUpdateEnemy();
+    }
 
+    public void SetHealth(float weaponDamage)
+    {
+        Health -= weaponDamage * (1 - Protection);
+
+        if (Health <= 0)
+        {
+            DespairDesertController.Enemies.Remove(gameObject);
+            Destroy(gameObject);
+        }
+    }
+
+    private void SetColliderActivity()
+    {
         var hindrancePosition = Camera.main.WorldToViewportPoint(transform.position);
 
         if ((hindrancePosition.x > (0 + ScreenIndentation) && hindrancePosition.x < (1 - ScreenIndentation)) &&
@@ -58,26 +73,6 @@ public abstract class EnemyBase : MonoBehaviour
     }
 
     public abstract void AwakeEnemy();
+
     public abstract void FixedUpdateEnemy();
-
-    public virtual void Init(GameObject target)
-    {
-        Target = target;
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Weapon")
-        {
-            var weaponBaseScript = collision.gameObject.GetComponent<WeaponBase>();
-
-            Health -= weaponBaseScript.Damage * (1 - Protection);
-
-            if (Health <= 0)
-            {
-                DespairDesertController.Enemies.Remove(gameObject);
-                Destroy(gameObject);
-            }
-        }
-    }
 }

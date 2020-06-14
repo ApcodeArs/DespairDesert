@@ -5,14 +5,18 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    //todo add to Scriptable Object
     [BoxGroup("WeaponBase")]
     public string Name;
     [BoxGroup("WeaponBase")]
     public float Damage;
-    
+
+    protected static DespairDesertController DespairDesertController;
+
     private void Awake()
     {
+        if (DespairDesertController == null)
+            DespairDesertController = FindObjectOfType<DespairDesertController>();
+
         AwakeWeapon();
     }
 
@@ -23,7 +27,7 @@ public abstract class WeaponBase : MonoBehaviour
 
     public abstract void AwakeWeapon();
 
-    public abstract void Init(GameObject parent);
-
     public abstract void FixedUpdateWeapon();
+
+    public abstract void Init(GameObject parent);
 }

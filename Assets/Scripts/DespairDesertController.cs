@@ -31,11 +31,11 @@ public class DespairDesertController : MonoBehaviour
         if (_enemiesCoroutine!=null)
             StopCoroutine(_enemiesCoroutine);
 
-        _enemiesCoroutine = StartCoroutine(EnemiesCoroutine());
+        _enemiesCoroutine = StartCoroutine(EnemiesFactory());
         #endregion
     }
 
-    private IEnumerator EnemiesCoroutine()
+    private IEnumerator EnemiesFactory()
     {
         while (true)
         {
@@ -44,8 +44,6 @@ public class DespairDesertController : MonoBehaviour
                 var enemy = Instantiate(EnemiesPrefabs[Random.Range(0, EnemiesPrefabs.Count)]);
                 var pos = Camera.main.ViewportToWorldPoint(EnemiesSpawnHelper.GetRandomSpawnPosition());
                 enemy.transform.position = new Vector3(pos.x, pos.y, 0.0f) * 1.5f; //scale factor
-
-                enemy.GetComponent<EnemyBase>().Init(Tank);
 
                 Enemies.Add(enemy);
             }
