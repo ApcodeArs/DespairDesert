@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class Dynamite : WeaponBase
     public float TimerTime = 5.0f; //sec
 
     private Coroutine _dynamiteCoroutine;
+
+    public ParticleSystem Smoke;
 
     public override void AwakeWeapon() { }
 
@@ -37,7 +40,10 @@ public class Dynamite : WeaponBase
 
         //todo add interaction with tank
 
-        for(var i = DespairDesertController.Enemies.Count-1; i>=0; i--)
+        var smoke = Instantiate(Smoke);
+        smoke.transform.position = transform.position;
+
+        for (var i = DespairDesertController.Enemies.Count - 1; i >= 0; i--)
         {
             if (Vector3.Distance(transform.position, DespairDesertController.Enemies[i].transform.position) < LesionRadius)
             {

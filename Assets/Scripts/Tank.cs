@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,7 +43,6 @@ public class Tank : MonoBehaviour
     private void MoveController()
     {
         #region Rotation
-
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             _tankRotation.z += RotationSpeed;
@@ -54,11 +54,9 @@ public class Tank : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Euler(_tankRotation);
-
         #endregion
 
         #region Shifting
-
         if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.position += transform.rotation * Vector3.up * Time.deltaTime * Speed;
@@ -68,7 +66,6 @@ public class Tank : MonoBehaviour
         {
             transform.position += transform.rotation * Vector3.down * Time.deltaTime * Speed;
         }
-
         #endregion
     }
 
