@@ -98,7 +98,7 @@ MonoBehaviour:
   Health: 100
   Protection: 0
   Speed: 0.25
-  Damage: 0
+  Damage: 25
 --- !u!50 &50306621695423770
 Rigidbody2D:
   serializedVersion: 4

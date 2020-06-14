@@ -98,7 +98,7 @@ MonoBehaviour:
   Health: 150
   Protection: 0.2
   Speed: 0.4
-  Damage: 0
+  Damage: 50
   CurveAmplitude: 3
   CurveSpeed: 3
 --- !u!50 &50319164867255310

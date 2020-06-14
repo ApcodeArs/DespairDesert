@@ -9,19 +9,25 @@ public class Tank : MonoBehaviour
     private Vector3 _tankRotation;
     private Vector3 _tankMovement;
 
-    //todo add to Scriptable Object
-    private const float Speed = 5.0f;
-    private const float RotationSpeed = 2.5f;
+    public float Speed = 5.0f;
+    public float RotationSpeed = 2.5f;
+
+    public float Health;
+    private float _currentHealth;
+    public float Protection;
 
     public List<GameObject> Weapons;
     private int _currentWeaponInd = 0;
 
     public Text Text;
     public Image WeaponImage;
+    public Image HealthImage;
 
     void Start()
     {
         _tankRotation = transform.rotation.eulerAngles;
+
+        _currentHealth = Health;
 
         SetUi();
     }
@@ -86,5 +92,24 @@ public class Tank : MonoBehaviour
     {
         Text.text = Weapons[_currentWeaponInd].GetComponent<WeaponBase>().Name;
         WeaponImage.sprite = Weapons[_currentWeaponInd].GetComponent<SpriteRenderer>().sprite;
+
+        HealthImage.fillAmount = _currentHealth / Health;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            var enemyBaseScript = collision.gameObject.GetComponent<EnemyBase>();
+
+            _currentHealth -= enemyBaseScript.Damage * (1 - Protection);
+
+            HealthImage.fillAmount = _currentHealth / Health;
+
+            if (_currentHealth <= 0)
+            {
+                Debug.Log("Your Die");
+            }
+        }
     }
 }

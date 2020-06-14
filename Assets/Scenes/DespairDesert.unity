@@ -256,11 +256,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27d41e31abf55f4e86b1dfefea79b4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 5
+  RotationSpeed: 2.5
+  Health: 100
+  Protection: 0.8
   Weapons:
   - {fileID: 3578032172972999976, guid: 9d220ec315deb2e44942787ff8a74761, type: 3}
   - {fileID: 2487006929153763007, guid: 0ae78659be76faf41ab2a9f008139d32, type: 3}
   Text: {fileID: 1881501435}
   WeaponImage: {fileID: 169737676}
+  HealthImage: {fileID: 1385489487}
 --- !u!61 &107568630
 BoxCollider2D:
   m_ObjectHideFlags: 0
