@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DespairDesertController : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class DespairDesertController : MonoBehaviour
 
     public GameObject Tank;
 
+    [BoxGroup("Points")]
+    public Text PointsUi;
+    private float _points;
+
     void Awake()
     {
         SetBorders(Screen.width, Screen.height);
@@ -33,6 +38,12 @@ public class DespairDesertController : MonoBehaviour
 
         _enemiesCoroutine = StartCoroutine(EnemiesFactory());
         #endregion
+    }
+
+    public void SetPoints(float points)
+    {
+        _points += points;
+        PointsUi.text = _points.ToString();
     }
 
     private IEnumerator EnemiesFactory()

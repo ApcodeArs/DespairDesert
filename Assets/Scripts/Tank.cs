@@ -116,8 +116,7 @@ public class Tank : MonoBehaviour
     public void SetHealth(float damage)
     {
         _currentHealth -= damage * (1 - Protection);
-        HealthImage.fillAmount = _currentHealth / Health;
-
+        
         SetHealthUi();
 
         if (_currentHealth <= 0)

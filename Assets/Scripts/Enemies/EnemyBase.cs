@@ -15,6 +15,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     [BoxGroup("BaseEnemy Params")]
     public float Health;
+    public float _health;
     [BoxGroup("BaseEnemy Params")]
     public float Protection;
 
@@ -35,6 +36,8 @@ public abstract class EnemyBase : MonoBehaviour
         Collider = GetComponent<Collider2D>();
         Collider.enabled = false;
 
+        _health = Health;
+
         if (DespairDesertController == null)
             DespairDesertController = FindObjectOfType<DespairDesertController>();
 
@@ -52,10 +55,12 @@ public abstract class EnemyBase : MonoBehaviour
 
     public void SetHealth(float weaponDamage)
     {
-        Health -= weaponDamage * (1 - Protection);
+        _health -= weaponDamage * (1 - Protection);
 
-        if (Health <= 0)
+        if (_health <= 0)
         {
+            DespairDesertController.SetPoints(Health);
+
             DespairDesertController.Enemies.Remove(gameObject);
             Destroy(gameObject);
         }
