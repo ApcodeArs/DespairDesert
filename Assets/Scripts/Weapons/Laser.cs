@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Laser : WeaponBase
 {
-    [BoxGroup("Laser")]
+    [BoxGroup("Laser Params")]
     public float Force = 10f;
 
     public Collider2D Collider;

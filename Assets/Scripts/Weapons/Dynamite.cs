@@ -7,21 +7,25 @@ using UnityEngine;
 
 public class Dynamite : WeaponBase
 {
-    [BoxGroup("Dynamite")]
+    [BoxGroup("Dynamite Params")]
     public float LesionRadius;
-    [BoxGroup("Dynamite")]
+    [BoxGroup("Dynamite Params")]
     public float TimerTime = 5.0f; //sec
+
+    public ParticleSystem Smoke;
 
     private Coroutine _dynamiteCoroutine;
 
-    public ParticleSystem Smoke;
+    private GameObject _parent;
 
     public override void AwakeWeapon() { }
 
     public override void Init(GameObject parent)
     {
-        transform.rotation = parent.transform.rotation;
-        transform.position = parent.transform.position + new Vector3(0.0f, 0.0f, 0.1f);
+        _parent = parent;
+
+        transform.rotation = _parent.transform.rotation;
+        transform.position = _parent.transform.position + new Vector3(0.0f, 0.0f, 0.1f);
 
         _dynamiteCoroutine = StartCoroutine(TimerCoroutine());
     }
@@ -38,19 +42,38 @@ public class Dynamite : WeaponBase
             yield return null;
         }
 
-        //todo add interaction with tank
+        BangEffects();
 
-        var smoke = Instantiate(Smoke);
-        smoke.transform.position = transform.position;
+        TankInteraction();
+        EnemyInteraction();
 
+        Destroy(gameObject);
+    }
+
+    private bool IsInAffectedArea(GameObject target) => Vector3.Distance(transform.position, target.transform.position) < LesionRadius;
+
+    private void TankInteraction()
+    {
+        if (IsInAffectedArea(_parent))
+        {
+            _parent.GetComponent<Tank>().SetHealth(Damage);
+        }
+    }
+
+    private void EnemyInteraction()
+    {
         for (var i = DespairDesertController.Enemies.Count - 1; i >= 0; i--)
         {
-            if (Vector3.Distance(transform.position, DespairDesertController.Enemies[i].transform.position) < LesionRadius)
+            if (IsInAffectedArea(DespairDesertController.Enemies[i]))
             {
                 DespairDesertController.Enemies[i].GetComponent<EnemyBase>().SetHealth(Damage);
             }
         }
+    }
 
-        Destroy(gameObject);
+    private void BangEffects()
+    {
+        var smoke = Instantiate(Smoke);
+        smoke.transform.position = transform.position;
     }
 }

@@ -109,16 +109,20 @@ public class Tank : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             var enemyBaseScript = collision.gameObject.GetComponent<EnemyBase>();
+            SetHealth(enemyBaseScript.Damage);
+        }
+    }
 
-            _currentHealth -= enemyBaseScript.Damage * (1 - Protection);
-            HealthImage.fillAmount = _currentHealth / Health;
+    public void SetHealth(float damage)
+    {
+        _currentHealth -= damage * (1 - Protection);
+        HealthImage.fillAmount = _currentHealth / Health;
 
-            SetHealthUi();
+        SetHealthUi();
 
-            if (_currentHealth <= 0)
-            {
-                Debug.Log("Your Die");
-            }
+        if (_currentHealth <= 0)
+        {
+            Debug.Log("Your Die");
         }
     }
 }

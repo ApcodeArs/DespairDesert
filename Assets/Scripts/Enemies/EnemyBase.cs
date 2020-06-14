@@ -5,22 +5,22 @@ using UnityEngine;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    [BoxGroup("StaticEnemyParams")]
+    [BoxGroup("Static Enemy Params")]
     public const int EnemiesCount = 10;
-    [BoxGroup("StaticEnemyParams")]
+    [BoxGroup("Static Enemy Params")]
     public const float SpawnDelay = 1.5f; //sec
 
-    [BoxGroup("BaseEnemyParams")]
+    [BoxGroup("BaseEnemy Params")]
     public string Name;
 
-    [BoxGroup("BaseEnemyParams")]
+    [BoxGroup("BaseEnemy Params")]
     public float Health;
-    [BoxGroup("BaseEnemyParams")]
+    [BoxGroup("BaseEnemy Params")]
     public float Protection;
 
-    [BoxGroup("BaseEnemyParams")]
+    [BoxGroup("BaseEnemy Params")]
     public float Speed;
-    [BoxGroup("BaseEnemyParams")]
+    [BoxGroup("BaseEnemy Params")]
     public float Damage;
 
     private const float ScreenIndentation = 0.05f;

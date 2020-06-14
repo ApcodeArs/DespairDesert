@@ -5,9 +5,9 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    [BoxGroup("WeaponBase")]
+    [BoxGroup("WeaponBase Params")]
     public string Name;
-    [BoxGroup("WeaponBase")]
+    [BoxGroup("WeaponBase Params")]
     public float Damage;
 
     protected static DespairDesertController DespairDesertController;
