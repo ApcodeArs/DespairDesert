@@ -40,14 +40,8 @@ public abstract class BaseEnemy : MonoBehaviour
     public abstract void AwakeEnemy();
     public abstract void FixedUpdateEnemy();
 
-    public abstract void Movement();
-
     public virtual void Init(GameObject target)
     {
         Target = target;
-
-        Movement();
     }
-
-   
 }

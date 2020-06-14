@@ -14,8 +14,4 @@ public class EnemyType1 : BaseEnemy
         transform.position += (Target.transform.position - transform.position) * Speed * Time.deltaTime;
     }
 
-    public override void Movement()
-    {
-      
-    }
 }
