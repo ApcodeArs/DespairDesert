@@ -93,6 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dynamite
-  Damage: 0
-  LesionRadius: 0
+  Damage: 100
+  LesionRadius: 5
   TimerTime: 5

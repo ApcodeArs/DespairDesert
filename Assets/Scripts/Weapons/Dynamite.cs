@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,7 +13,13 @@ public class Dynamite : WeaponBase
 
     private Coroutine _dynamiteCoroutine;
 
-    public override void AwakeWeapon() { }
+    protected static DespairDesertController DespairDesertController;
+
+    public override void AwakeWeapon()
+    {
+        if (DespairDesertController == null)
+            DespairDesertController = FindObjectOfType<DespairDesertController>();
+    }
 
     public override void Init(GameObject parent)
     {
@@ -34,7 +41,27 @@ public class Dynamite : WeaponBase
             yield return null;
         }
 
-        Debug.Log("TNT");
+        //todo improve
+        var removedList = new List<int>();
+
+        foreach (var enemy in DespairDesertController.Enemies)
+        {
+            //todo add interaction with tank
+            //todo add hp calculation
+
+            if (Vector3.Distance(transform.position, enemy.transform.position) < LesionRadius)
+            {
+                removedList.Add(DespairDesertController.Enemies.IndexOf(enemy));
+            }
+        }
+
+        foreach (var removedElem in removedList)
+        {
+            var t = DespairDesertController.Enemies.ElementAt(removedElem);
+            DespairDesertController.Enemies.Remove(t);
+            Destroy(t);
+        }
+
         Destroy(gameObject);
     }
 }
