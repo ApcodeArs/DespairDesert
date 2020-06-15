@@ -2442,6 +2442,7 @@ GameObject:
   - component: {fileID: 2025172277}
   - component: {fileID: 2025172276}
   - component: {fileID: 2025172278}
+  - component: {fileID: 2025172279}
   m_Layer: 0
   m_Name: DespairDesertController
   m_TagString: Untagged
@@ -2594,6 +2595,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2025172279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025172274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf34bf6aed35e7a4287fa0b0581640ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SombreroPrefab: {fileID: 5492970660575365638, guid: 0f3cca95ef948af49926a55ee1abaf35,
+    type: 3}
 --- !u!1 &2053718144
 GameObject:
   m_ObjectHideFlags: 0

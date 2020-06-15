@@ -69,6 +69,7 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\Scripts\BackgroundGeneration.cs" />
     <Compile Include="Assets\Scripts\DespairDesertController.cs" />
+    <Compile Include="Assets\Scripts\EasterEgg.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyBase.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyType1.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyType2.cs" />
