@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EnemyType1 : EnemyBase
 {
-    public override void AwakeEnemy() { }
+    //public override void AwakeEnemy() { }
 
-    public override void FixedUpdateEnemy()
+    protected override void FixedUpdateEnemy()
     {
-        transform.position += Vector3.Normalize(Target.transform.position - transform.position) * Speed * Time.deltaTime;
+        SetEnemyScaleDirection();
+
+        transform.position += Direction * Speed * Time.deltaTime;
     }
 }

@@ -32,7 +32,7 @@ public class DespairDesertController : MonoBehaviour
             SetBorders(width, height);
         };
 
-        #region enemies сoroutine
+        #region Enemies сoroutine
         if (_enemiesCoroutine!=null)
             StopCoroutine(_enemiesCoroutine);
 

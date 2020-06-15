@@ -17,17 +17,17 @@ public abstract class WeaponBase : MonoBehaviour
         if (DespairDesertController == null)
             DespairDesertController = FindObjectOfType<DespairDesertController>();
 
-        AwakeWeapon();
+        //AwakeWeapon();
     }
 
-    private void FixedUpdate()
-    {
-        FixedUpdateWeapon();
-    }
+    //private void FixedUpdate()
+    //{
+    //    FixedUpdateWeapon();
+    //}
 
-    public abstract void AwakeWeapon();
+    //public abstract void AwakeWeapon();
 
-    public abstract void FixedUpdateWeapon();
+    //public abstract void FixedUpdateWeapon();
 
     public abstract void Init(GameObject parent);
 }

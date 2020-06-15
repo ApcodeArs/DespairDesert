@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyType2 : EnemyBase
 {
-    public override void AwakeEnemy() { }
+    //public override void AwakeEnemy() { }
 
     [BoxGroup("EnemyType2 Params")]
     public float CurveAmplitude;
@@ -14,12 +14,14 @@ public class EnemyType2 : EnemyBase
 
     private float _duration;
 
-    public override void FixedUpdateEnemy()
+    protected override void FixedUpdateEnemy()
     {
+        SetEnemyScaleDirection();
+
         _duration += Time.deltaTime * CurveSpeed;
 
         var vSin = new Vector3(Mathf.Sin(_duration) * CurveAmplitude, -Mathf.Sin(_duration) * CurveAmplitude, 0);
-        var vLin = Vector3.Normalize(Target.transform.position - transform.position) * Speed;
+        var vLin = Direction * Speed;
 
         transform.position += (vSin + vLin) * Time.deltaTime;
     }

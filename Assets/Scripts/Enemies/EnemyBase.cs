@@ -10,8 +10,8 @@ public abstract class EnemyBase : MonoBehaviour
     [BoxGroup("Static Enemy Params")]
     public const float SpawnDelay = 1.5f; //sec
 
-    [BoxGroup("BaseEnemy Params")]
-    public string Name;
+    //[BoxGroup("BaseEnemy Params")]
+    //public string Name;
 
     [BoxGroup("BaseEnemy Params")]
     public float Health;
@@ -24,12 +24,16 @@ public abstract class EnemyBase : MonoBehaviour
     [BoxGroup("BaseEnemy Params")]
     public float Damage;
 
-    private const float ScreenIndentation = 0.05f;
-
     protected Collider2D Collider;
+
+    protected Vector3 Direction;
+    protected Vector3 LocalScale;
 
     protected static DespairDesertController DespairDesertController;
     protected static Tank Target;
+    protected static Camera MainCamera;
+
+    private const float ScreenIndentation = 0.05f;
 
     private void Awake()
     {
@@ -44,12 +48,18 @@ public abstract class EnemyBase : MonoBehaviour
         if (Target == null)
             Target = FindObjectOfType<Tank>();
 
-        AwakeEnemy();
+        if (MainCamera == null)
+            MainCamera = Camera.main;
+
+        //AwakeEnemy();
     }
 
     private void FixedUpdate()
     {
+        Direction = Vector3.Normalize(Target.transform.position - transform.position);
+
         SetColliderActivity();
+
         FixedUpdateEnemy();
     }
 
@@ -66,18 +76,26 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
-    private void SetColliderActivity()
+    protected void SetEnemyScaleDirection()
     {
-        var hindrancePosition = Camera.main.WorldToViewportPoint(transform.position);
-
-        if ((hindrancePosition.x > (0 + ScreenIndentation) && hindrancePosition.x < (1 - ScreenIndentation)) &&
-            (hindrancePosition.y > (0 + ScreenIndentation) && hindrancePosition.y < (1 - ScreenIndentation)))
-        {
-            Collider.enabled = true;
-        }
+        LocalScale = transform.localScale;
+        LocalScale.x *= ((Direction.x > 0.0f && LocalScale.x > 0) || (Direction.x < 0.0f && LocalScale.x < 0)) ? 1 : -1;
+        transform.localScale = LocalScale;
     }
 
-    public abstract void AwakeEnemy();
+    private void SetColliderActivity()
+    {
+        if (Collider.enabled)
+            return;
 
-    public abstract void FixedUpdateEnemy();
+        var hindrancePosition = MainCamera.WorldToViewportPoint(transform.position);
+
+        Collider.enabled =
+            ((hindrancePosition.x > (0 + ScreenIndentation) && hindrancePosition.x < (1 - ScreenIndentation)) &&
+             (hindrancePosition.y > (0 + ScreenIndentation) && hindrancePosition.y < (1 - ScreenIndentation)));
+    }
+
+    //public abstract void AwakeEnemy();
+
+    protected abstract void FixedUpdateEnemy();
 }
