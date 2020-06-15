@@ -54,7 +54,7 @@ public class DespairDesertController : MonoBehaviour
         _points += points;
         PointsUi.text = _points.ToString();
 
-        if (GameData.Score < _points)
+        if (_gameData.Score < _points)
             SetBestPoints(_points);
     }
 
