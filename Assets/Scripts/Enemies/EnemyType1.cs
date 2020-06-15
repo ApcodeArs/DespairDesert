@@ -8,6 +8,6 @@ public class EnemyType1 : EnemyBase
 
     public override void FixedUpdateEnemy()
     {
-        transform.position += (Target.transform.position - transform.position) * Speed * Time.deltaTime;
+        transform.position += Vector3.Normalize(Target.transform.position - transform.position) * Speed * Time.deltaTime;
     }
 }

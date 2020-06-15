@@ -96,8 +96,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Health: 100
+  _health: 0
   Protection: 0
-  Speed: 0.25
+  Speed: 2.5
   Damage: 25
 --- !u!50 &50306621695423770
 Rigidbody2D:
@@ -111,7 +112,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -119,7 +120,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &61376245491449998
 BoxCollider2D:
   m_ObjectHideFlags: 0

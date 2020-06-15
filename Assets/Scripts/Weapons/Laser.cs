@@ -11,7 +11,7 @@ public class Laser : WeaponBase
 
     public Collider2D Collider;
     public Rigidbody2D Rigidbody;
-    
+
     public override void AwakeWeapon() { }
 
     public override void Init(GameObject parent)
@@ -19,8 +19,7 @@ public class Laser : WeaponBase
         transform.rotation = parent.transform.rotation;
         Rigidbody.AddForce(Force * transform.up, ForceMode2D.Impulse);
 
-        //for no interaction with tank
-        DOVirtual.DelayedCall(0.2f, () => Collider.isTrigger = false);
+        Physics2D.IgnoreCollision(Collider, parent.GetComponent<Collider2D>());
     }
 
     public override void FixedUpdateWeapon() { }

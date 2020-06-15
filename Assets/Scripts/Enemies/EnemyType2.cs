@@ -19,7 +19,7 @@ public class EnemyType2 : EnemyBase
         _duration += Time.deltaTime * CurveSpeed;
 
         var vSin = new Vector3(Mathf.Sin(_duration) * CurveAmplitude, -Mathf.Sin(_duration) * CurveAmplitude, 0);
-        var vLin = (Target.transform.position - transform.position) * Speed;
+        var vLin = Vector3.Normalize(Target.transform.position - transform.position) * Speed;
 
         transform.position += (vSin + vLin) * Time.deltaTime;
     }
