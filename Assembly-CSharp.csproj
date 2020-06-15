@@ -73,6 +73,8 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyType1.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyType2.cs" />
     <Compile Include="Assets\Scripts\EnemiesSpawnHelper.cs" />
+    <Compile Include="Assets\Scripts\FileManager.cs" />
+    <Compile Include="Assets\Scripts\GameData.cs" />
     <Compile Include="Assets\Scripts\ScreenResolutionController.cs" />
     <Compile Include="Assets\Scripts\Tank.cs" />
     <Compile Include="Assets\Scripts\Weapons\Dynamite.cs" />

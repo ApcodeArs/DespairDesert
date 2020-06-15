@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Tank : MonoBehaviour
@@ -117,12 +118,13 @@ public class Tank : MonoBehaviour
     public void SetHealth(float damage)
     {
         _currentHealth -= damage * (1 - Protection);
-        
+
         SetHealthUi();
 
         if (_currentHealth <= 0)
         {
             Debug.Log("Your Die");
+            GameObject.Find("DespairDesertController").GetComponent<DespairDesertController>().RestartLevel();
         }
     }
 }

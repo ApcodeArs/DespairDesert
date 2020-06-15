@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DespairDesertController : MonoBehaviour
@@ -23,8 +25,15 @@ public class DespairDesertController : MonoBehaviour
     public Text PointsUi;
     private float _points;
 
+    [BoxGroup("Points")]
+    public Text BestScoreUi;
+    private GameData _gameData;
+
     void Awake()
     {
+        _gameData = FileManager.Load();
+        SetBestPoints(_gameData.Score);
+
         SetBorders(Screen.width, Screen.height);
 
         ScreenResolutionController.Instance.WindowResolutionChanged += (width, height) =>
@@ -44,6 +53,26 @@ public class DespairDesertController : MonoBehaviour
     {
         _points += points;
         PointsUi.text = _points.ToString();
+
+        if (GameData.Score < _points)
+            SetBestPoints(_points);
+    }
+
+    public void SetBestPoints(float bestPoints)
+    {
+        _gameData.Score = bestPoints;
+        BestScoreUi.text = _gameData.Score.ToString();
+    }
+
+    public void RestartLevel()
+    {
+        FileManager.Save(_gameData);
+        Time.timeScale = 0;
+        DOVirtual.DelayedCall(2.0f, () =>
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1;
+        });
     }
 
     private IEnumerator EnemiesFactory()
