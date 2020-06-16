@@ -8,10 +8,10 @@ using UnityEngine.UI;
 
 public class DespairDesertController : MonoBehaviour
 {
-    [SerializeField, BoxGroup("Borders")] public GameObject LeftBorder;
-    [SerializeField, BoxGroup("Borders")] public GameObject RightBorder;
-    [SerializeField, BoxGroup("Borders")] public GameObject TopBorder;
-    [SerializeField, BoxGroup("Borders")] public GameObject BottomBorder;
+    [BoxGroup("Borders")] public GameObject LeftBorder;
+    [BoxGroup("Borders")] public GameObject RightBorder;
+    [BoxGroup("Borders")] public GameObject TopBorder;
+    [BoxGroup("Borders")] public GameObject BottomBorder;
 
     [SerializeField, BoxGroup("Enemies")]
     public List<GameObject> Enemies = new List<GameObject>();

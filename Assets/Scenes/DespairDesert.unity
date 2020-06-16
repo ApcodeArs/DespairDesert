@@ -2439,11 +2439,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2025172275}
-  - component: {fileID: 2025172277}
   - component: {fileID: 2025172276}
+  - component: {fileID: 2025172277}
   - component: {fileID: 2025172278}
-  - component: {fileID: 2025172279}
   - component: {fileID: 2025172280}
+  - component: {fileID: 2025172279}
   m_Layer: 0
   m_Name: DespairDesertController
   m_TagString: Untagged
