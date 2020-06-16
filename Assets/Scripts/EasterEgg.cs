@@ -18,7 +18,7 @@ public class EasterEgg : MonoBehaviour
         if (Random.value > EntryThreshold)
             return;
 
-        //add to check TimeSpan(15, 0, 0)
+        //add TimeSpan(15, 0, 0) to check
         var currentTime = DateTime.Now.TimeOfDay;
 
         if (currentTime > _startSiestaHour && currentTime < _endSiestaHour)

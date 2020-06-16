@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class EnemiesSpawnHelper
 {
-    private const int HindranceXCapacity = 5;
+    private const int HindranceXCapacity = 6;
     private const int HindranceYCapacity = 4;
 
     private static List<Vector2> _hindranceSpawnPositions;

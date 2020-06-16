@@ -12,8 +12,6 @@ public class Laser : WeaponBase
     public Collider2D Collider;
     public Rigidbody2D Rigidbody;
 
-    //public override void AwakeWeapon() { }
-
     public override void Init(GameObject parent)
     {
         transform.rotation = parent.transform.rotation;
@@ -21,8 +19,6 @@ public class Laser : WeaponBase
 
         Physics2D.IgnoreCollision(Collider, parent.GetComponent<Collider2D>());
     }
-
-    //public override void FixedUpdateWeapon() { }
 
     void OnCollisionEnter2D(Collision2D collision)
     {

@@ -18,8 +18,6 @@ public class Dynamite : WeaponBase
 
     private GameObject _parent;
 
-    //public override void AwakeWeapon() { }
-
     public override void Init(GameObject parent)
     {
         _parent = parent;
@@ -29,8 +27,6 @@ public class Dynamite : WeaponBase
 
         _dynamiteCoroutine = StartCoroutine(TimerCoroutine());
     }
-
-    //public override void FixedUpdateWeapon() { }
 
     private IEnumerator TimerCoroutine()
     {

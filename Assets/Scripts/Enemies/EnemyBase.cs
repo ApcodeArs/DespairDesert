@@ -10,9 +10,6 @@ public abstract class EnemyBase : MonoBehaviour
     [BoxGroup("Static Enemy Params")]
     public const float SpawnDelay = 1.5f; //sec
 
-    //[BoxGroup("BaseEnemy Params")]
-    //public string Name;
-
     [BoxGroup("BaseEnemy Params")]
     public float Health;
     public float _health;
@@ -50,8 +47,6 @@ public abstract class EnemyBase : MonoBehaviour
 
         if (MainCamera == null)
             MainCamera = Camera.main;
-
-        //AwakeEnemy();
     }
 
     private void FixedUpdate()
@@ -94,8 +89,6 @@ public abstract class EnemyBase : MonoBehaviour
             ((hindrancePosition.x > (0 + ScreenIndentation) && hindrancePosition.x < (1 - ScreenIndentation)) &&
              (hindrancePosition.y > (0 + ScreenIndentation) && hindrancePosition.y < (1 - ScreenIndentation)));
     }
-
-    //public abstract void AwakeEnemy();
 
     protected abstract void FixedUpdateEnemy();
 }

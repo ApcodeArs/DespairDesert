@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class EnemyType2 : EnemyBase
 {
-    //public override void AwakeEnemy() { }
-
     [BoxGroup("EnemyType2 Params")]
     public float CurveAmplitude;
     [BoxGroup("EnemyType2 Params")]

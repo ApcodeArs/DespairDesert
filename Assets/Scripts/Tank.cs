@@ -12,9 +12,6 @@ public class Tank : MonoBehaviour
     [BoxGroup("Movement Params")] public float Speed = 5.0f;
     public float RotationSpeed = 2.5f;
 
-    private Vector3 _tankMovement;
-    private Vector3 _tankRotation;
-
     [BoxGroup("Safety Params")] public float Health;
     private float _currentHealth;
     [BoxGroup("Safety Params")] public float Protection;
@@ -25,6 +22,9 @@ public class Tank : MonoBehaviour
     [BoxGroup("UI")] public Text Text;
     [BoxGroup("UI")] public Image WeaponImage;
     [BoxGroup("UI")] public Image HealthImage;
+
+    private Vector3 _tankMovement;
+    private Vector3 _tankRotation;
 
     void Start()
     {

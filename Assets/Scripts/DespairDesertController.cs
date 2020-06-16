@@ -29,10 +29,16 @@ public class DespairDesertController : MonoBehaviour
     public Text BestScoreUi;
     private GameData _gameData;
 
+    [BoxGroup("Audio")] public AudioSource MissionAudioSource;
+    [BoxGroup("Audio")] public AudioClip StartGame;
+    [BoxGroup("Audio")] public AudioClip EndGame;
+
     void Awake()
     {
         _gameData = FileManager.Load();
-        SetBestPoints(_gameData.Score);
+        SetBestScore(_gameData.Score);
+
+        PlaySound(StartGame);
 
         SetBorders(Screen.width, Screen.height);
 
@@ -42,7 +48,7 @@ public class DespairDesertController : MonoBehaviour
         };
 
         #region Enemies сoroutine
-        if (_enemiesCoroutine!=null)
+        if (_enemiesCoroutine != null)
             StopCoroutine(_enemiesCoroutine);
 
         _enemiesCoroutine = StartCoroutine(EnemiesFactory());
@@ -55,10 +61,10 @@ public class DespairDesertController : MonoBehaviour
         PointsUi.text = _points.ToString();
 
         if (_gameData.Score < _points)
-            SetBestPoints(_points);
+            SetBestScore(_points);
     }
 
-    public void SetBestPoints(float bestPoints)
+    public void SetBestScore(float bestPoints)
     {
         _gameData.Score = bestPoints;
         BestScoreUi.text = _gameData.Score.ToString();
@@ -67,12 +73,15 @@ public class DespairDesertController : MonoBehaviour
     public void RestartLevel()
     {
         FileManager.Save(_gameData);
+
+        PlaySound(EndGame);
+
         Time.timeScale = 0;
-        DOVirtual.DelayedCall(2.0f, () =>
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            Time.timeScale = 1;
-        });
+        DOVirtual.DelayedCall(EndGame.length + 0.5f, () =>
+          {
+              SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+              Time.timeScale = 1;
+          });
     }
 
     private IEnumerator EnemiesFactory()
@@ -131,5 +140,11 @@ public class DespairDesertController : MonoBehaviour
                                           + new Vector3(0.0f,
                                               -BottomBorder.GetComponent<RectTransform>().rect.height / 2);
         #endregion
+    }
+
+    private void PlaySound(AudioClip clip)
+    {
+        MissionAudioSource.clip = clip;
+        MissionAudioSource.Play();
     }
 }

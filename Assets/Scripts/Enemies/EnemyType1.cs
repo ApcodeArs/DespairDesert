@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyType1 : EnemyBase
 {
-    //public override void AwakeEnemy() { }
-
     protected override void FixedUpdateEnemy()
     {
         SetEnemyScaleDirection();

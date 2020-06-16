@@ -2443,6 +2443,7 @@ GameObject:
   - component: {fileID: 2025172276}
   - component: {fileID: 2025172278}
   - component: {fileID: 2025172279}
+  - component: {fileID: 2025172280}
   m_Layer: 0
   m_Name: DespairDesertController
   m_TagString: Untagged
@@ -2487,6 +2488,9 @@ MonoBehaviour:
   Tank: {fileID: 107568627}
   PointsUi: {fileID: 1573036744}
   BestScoreUi: {fileID: 1339860885}
+  MissionAudioSource: {fileID: 2025172280}
+  StartGame: {fileID: 8300000, guid: 051f9112d45911345875f6b1acc76fc5, type: 3}
+  EndGame: {fileID: 8300000, guid: bca713fd5069c4a48835d9a953eae534, type: 3}
 --- !u!114 &2025172277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,6 +2613,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SombreroPrefab: {fileID: 5492970660575365638, guid: 0f3cca95ef948af49926a55ee1abaf35,
     type: 3}
+--- !u!82 &2025172280
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025172274}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2053718144
 GameObject:
   m_ObjectHideFlags: 0
