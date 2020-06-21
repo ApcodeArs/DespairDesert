@@ -27,4 +27,4 @@ Test task for [Banzai Games](https://banzai.games/)
 
 ## P.S.
 * test task not accepted
-* feedback feedback is not provided =/
+* feedback is not provided =/
