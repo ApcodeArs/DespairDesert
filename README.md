@@ -8,6 +8,9 @@ Test task for [Banzai Games](https://banzai.games/)
 * use Q & W to change weapon
 * use X to fire
 
+## Demo
+![demo.gif](https://github.com/ApcodeArs/DespairDesert/blob/master/demo.gif)
+
 ## Features
 * background random generation ([Perlin noise](https://en.wikipedia.org/wiki/Perlin_noise))
 * easy to scale (used *OOP*'s principles to create weapon & enemies)
