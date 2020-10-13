@@ -9,7 +9,7 @@ Test task for [Banzai Games](https://banzai.games/)
 * use X to fire
 
 ## Demo
-[itch link](https://arseniy59.itch.io/despairdesert)
+[itch.io project page](https://arseniy59.itch.io/despairdesert)
 
 ![demo.gif](https://github.com/ApcodeArs/DespairDesert/blob/master/demo.gif)
 
