@@ -10,6 +10,7 @@ Test task for [Banzai Games](https://banzai.games/)
 
 ## Demo
 [itch link](https://arseniy59.itch.io/despairdesert)
+
 ![demo.gif](https://github.com/ApcodeArs/DespairDesert/blob/master/demo.gif)
 
 ## Features
